@@ -50,7 +50,7 @@
 #elif __UCLIBC__
 #include <features.h>
 #else
-#include <gnu/libc-version.h>
+//#include <gnu/libc-version.h>
 #endif
 
 #include <boost/filesystem.hpp>
@@ -507,7 +507,7 @@ void ProcessInfo::SystemInfo::collectSystemInfo() {
     ss << "uClibc-" << __UCLIBC_MAJOR__ << "." << __UCLIBC_MINOR__ << "." << __UCLIBC_SUBLEVEL__;
     bExtra.append("libcVersion", ss.str());
 #else
-    bExtra.append("libcVersion", gnu_get_libc_version());
+    bExtra.append("libcVersion", "");   //gnu_get_libc_version()
 #endif
     if (!verSig.empty())
         // optional
